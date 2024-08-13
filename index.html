@@ -5,67 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>focarium - under maintenance</title>
     <link rel="stylesheet" href="main.css">
-    <style>
-        /* Custom Brevo styles */
-        @font-face {
-            font-display: block;
-            font-family: Roboto;
-            src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), 
-                 url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
-        }
-
-        @font-face {
-            font-display: fallback;
-            font-family: Roboto;
-            font-weight: 600;
-            src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
-                 url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
-        }
-
-        @font-face {
-            font-display: fallback;
-            font-family: Roboto;
-            font-weight: 700;
-            src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
-                 url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
-        }
-
-        .g-recaptcha {
-            margin-top: 15px;
-        }
-
-        #sib-container input:-ms-input-placeholder,
-        #sib-container input::placeholder,
-        #sib-container textarea::placeholder {
-            text-align: left;
-            font-family: "Trebuchet MS", sans-serif;
-            color: #c0ccda;
-        }
-
-        #sib-container a {
-            text-decoration: underline;
-            color: #D4AF37; /* Gold Accent Color */
-        }
-
-    </style>
 </head>
 <body>
     <div class="overlay"></div>
     <div class="content">
         <img src="Untitled.png" alt="focarium logo" class="logo">
         <h1>focarium is moving!</h1>
-        <p>But don't worry. We’ll be back by the end of the month with 
-            great new products and beautiful new furniture pieces!
-        </p>
+        <p>But don't worry. We’ll be back by the end of the month with great new products and beautiful new furniture pieces!</p>
         <p>Sign up for our newsletter to stay updated:</p>
-        <form id="sib-form" method="POST" action="https://7d45f04f.sibforms.com/serve/MUIFAFHlFMhPoZsQVhkeFvPtlpkLsun7mIA_dDNCtMfmLTcnsUE5u_V-cKjQqfCZyaJyTqq3I0Pn2JGRjP03IuuUP8jFN0C9YqxpUyllkTuol6nWVtqLq8ipFkgeMAqyclrTDhTt1CTuz5HgOlDI8Ro5P2uTPWQss50W5_tg61IwwvKDAf9KBNDPq4-ylev1L2jHOLh1Qj3ZJXFN" data-type="subscription">
-            <input type="email" id="EMAIL" name="EMAIL" placeholder="Your email" required>
+        <form id="newsletter-form" action="#" method="post">
+            <input type="email" name="email" placeholder="Your email" required>
             <button type="submit">Subscribe</button>
-            <div class="g-recaptcha" data-sitekey="0x4AAAAAAAhGWMyVTzWlH45X" data-callback="invisibleCaptchaCallback" data-size="invisible"></div>
         </form>
+        <div class="g-recaptcha" data-sitekey="0x4AAAAAAAhGWMyVTzWlH45X"></div>
     </div>
 
-    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+    <script>
+        require('dotenv').config();
+        const apiKey = process.env.BREVO_API_KEY;
+
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const email = e.target.email.value;
+
+            const response = await fetch('https://api.brevo.com/v3/contacts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'api-key': apiKey
+                },
+                body: JSON.stringify({
+                    email: email,
+                    listIds: ['Your first list #2'],  // replace with your actual list ID
+                    updateEnabled: false
+                })
+            });
+
+            if (response.ok) {
+                alert('Subscribed successfully!');
+            } else {
+                alert('Subscription failed. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
