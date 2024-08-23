@@ -73,3 +73,23 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #49678D; /* Slate Blue */
 }
+
+/* Footer styles */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: rgba(240, 240, 240, 0.6); /* Same as your content background */
+  color: #333333; /* Almost Black */
+  border-top: 1px solid #ccc;
+}
+
+footer nav a {
+  color: #651922; /* Deep Maroon */
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
