@@ -7,9 +7,8 @@ body {
   background-repeat: no-repeat;
   color: #333333; /* Almost Black for primary text */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .overlay {
@@ -28,6 +27,7 @@ body {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  flex: 1; /* Allow content to grow and take available space */
 }
 
 .logo {
@@ -77,11 +77,13 @@ button[type="submit"]:hover {
 /* Footer styles */
 footer {
   text-align: center;
-  margin-top: 50px;
   padding: 20px;
   background-color: rgba(240, 240, 240, 0.6); /* Same as your content background */
   color: #333333; /* Almost Black */
   border-top: 1px solid #ccc;
+  width: 100%;
+  position: relative;
+  bottom: 0;
 }
 
 footer nav a {
