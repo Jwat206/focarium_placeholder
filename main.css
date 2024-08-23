@@ -7,8 +7,9 @@ body {
   background-repeat: no-repeat;
   color: #333333; /* Almost Black for primary text */
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .overlay {
@@ -27,7 +28,12 @@ body {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  flex: 1; /* Allow content to grow and take available space */
+  width: 100%;
+  max-width: 600px; /* Adjust the max width for better layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh; /* Ensures content box takes up a decent portion of the height */
 }
 
 .logo {
@@ -74,16 +80,12 @@ button[type="submit"]:hover {
   background-color: #49678D; /* Slate Blue */
 }
 
-/* Footer styles */
+/* Footer styles within the content box */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: rgba(240, 240, 240, 0.6); /* Same as your content background */
-  color: #333333; /* Almost Black */
+  padding-top: 20px;
+  margin-top: 20px;
   border-top: 1px solid #ccc;
-  width: 100%;
-  position: relative;
-  bottom: 0;
 }
 
 footer nav a {
