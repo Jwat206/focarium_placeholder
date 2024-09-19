@@ -1,99 +1,67 @@
-body {
+/* Ensure the body takes up the full height of the viewport */
+html, body {
+  height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('background-image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #333333; /* Almost Black for primary text */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center;  /* Horizontally centers the content */
+  align-items: center;      /* Vertically centers the content */
+  font-family: Trebuchet MS, sans-serif;
+  background-color: #f4f4f4;
 }
 
+/* Make sure the content stays centered */
+.content {
+  background-color: rgba(255, 255, 255, 0.8);  /* Optional for transparency */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;   /* Set a max-width to prevent the content from stretching too far */
+  width: 100%;        /* Ensure content takes the full width of the container */
+  border-radius: 10px;
+}
+
+/* Style the overlay (if needed) */
 .overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;  /* Ensure the overlay stays behind the content */
 }
 
-.content {
-  text-align: center;
-  background-color: rgba(240, 240, 240, 0.6); /* Light Warm Gray with transparency */
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+/* Ensure the footer stays at the bottom */
+footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  max-width: 600px; /* Adjust the max width for better layout */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 70vh; /* Ensures content box takes up a decent portion of the height */
-}
-
-.logo {
-  width: 250px; /* Adjust the logo size */
-  margin-bottom: 0px; /* Reduce space between the logo and the text */
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #651922; /* Deep Maroon */
-  margin-top: 10px; /* Reduce the margin between the logo and the text */
-}
-
-p {
-  font-size: 1.2rem;
-  color: #333333; /* Almost Black */
-}
-
-form {
-  margin-top: 20px;
-}
-
-input[type="email"] {
+  text-align: center;
   padding: 10px;
-  width: 250px;
-  margin-right: 10px;
+  background-color: #651922; /* Same as your maroon color */
+  color: white;
+  font-size: 14px;
+}
+
+/* Basic form styling */
+form input[type="email"] {
+  padding: 10px;
+  margin: 10px 0;
+  width: calc(100% - 22px); /* Full width minus padding */
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #fff;
-  color: #333333; /* Almost Black */
 }
 
-button[type="submit"] {
+form button {
+  background-color: #651922;
+  color: white;
   padding: 10px 20px;
-  background-color: #651922; /* Deep Maroon */
-  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
-button[type="submit"]:hover {
-  background-color: #49678D; /* Slate Blue */
-}
-
-/* Footer styles within the content box */
-footer {
-  text-align: center;
-  padding-top: 20px;
-  margin-top: 20px;
-  border-top: 1px solid #ccc;
-}
-
-footer nav a {
-  color: #651922; /* Deep Maroon */
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-footer nav a:hover {
-  text-decoration: underline;
+form button:hover {
+  background-color: #4c1215; /* Slightly darker on hover */
 }
