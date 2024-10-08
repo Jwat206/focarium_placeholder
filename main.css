@@ -5,7 +5,8 @@ html, body {
   display: flex;
   justify-content: center;  /* Horizontally centers the content */
   align-items: center;      /* Vertically centers the content */
-  font-family: Trebuchet MS, sans-serif;
+  font-family: New Astro, sans-serif;
+  font-weight: 100;
   background-color: #f4f4f4;
 }
 
